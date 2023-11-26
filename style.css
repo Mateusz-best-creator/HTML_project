@@ -123,58 +123,7 @@ img {
   }
 }
 
-/* Projects Section */
-.buttons {
-  margin-top: 15px;
-  margin-bottom: 50px;
-}
-
-button {
-  min-width: 100px;
-  height: 40px;
-  cursor: pointer;
-  border-radius: 10px;
-  margin-right: 10px;
-  border: 2px solid var(--primary-color);
-  font-size: 15px;
-  outline: none;
-}
-
-button:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-button:hover:not(.outline) {
-  filter: brightness(110%);
-}
-
-.primary {
-  background: var(--primary-color);
-  color: var(--on-primary);
-}
-
-.secondary {
-  border: 2px solid var(--secondary-color);
-}
-
-.secondary,
-.secondary:hover,
-.outline.secondary:hover {
-  background: var(--secondary-color);
-  color: var(--on-primary);
-}
-
-.outline {
-  background: var(--background);
-  color: var(--on-background);
-}
-
-.outline:hover {
-  background: var(--primary-color);
-  color: var(--on-primary);
-}
-
+/* about section */
 .text-box {
   width: 40%;
   text-align: center;
@@ -190,7 +139,41 @@ p {
   line-height: 25px;
 }
 
+.about-text {
+  background-color: #ffffffde;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.about-text h2 {
+  color: #333333;
+}
+
+.about-text p {
+  color: #666666;
+  line-height: 1.6;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-text {
+    max-width: 100%; /* Adjust maximum width for smaller screens */
+  }
+}
+
+
 /* Contact Section */
+#contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .fab {
   font-size: 100px;
   margin-right: 50px;
@@ -206,7 +189,25 @@ p {
   border: none;
 }
 
-/* Dark Mode Toggle */
+@media only screen and (max-width: 768px) {
+  #contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contact a {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px; /* Adjust spacing for smaller screens */
+  }
+
+  #contact a:hover,
+  #contact a:active {
+    border: none;
+  }
+}
+
+/* Dark Mode Toggle :) */
 .theme-switch-wrapper {
   display: flex;
   align-items: center;
