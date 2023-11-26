@@ -14,8 +14,8 @@ function addProperties (firstColor, secondColor, firstIcon, secondIcon, type) {
     toggleIcon.children[1].classList.remove(`${firstIcon}`);
     toggleIcon.children[1].classList.add(`${secondIcon}`);
     image1.src= `img/undraw_proud_coder_${type}.svg`;
-    image2.src= `img/undraw_feeling_proud_${type}.svg`;
-    image3.src= `img/undraw_conceptual_idea_${type}.svg`;
+    image2.src= `img/undraw_healthy_habit_${type}.svg`;
+    image3.src= `img/undraw_fitness_stats_${type}.svg`;
 }
 
 // Dark Mode Styles

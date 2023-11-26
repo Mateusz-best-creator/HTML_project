@@ -87,23 +87,40 @@ a:focus {
 }
 
 /* About Section */
-.about-container {
+.hobbies-container {
   display: flex;
+  flex-direction: row; /* Change to column layout on smaller screens */
 }
 
 .image-container {
   border: 1px solid var(--secondary-color);
   border-radius: 10px;
   padding: 10px 20px;
-  margin-right: 25px;
-  width: auto;
+  margin: 15px;
+  width: 100%; 
   background: var(--background);
   box-shadow: var(--box-shadow);
 }
 
 img {
-  height: 300px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px; /* Limit the maximum width to 300px */
+  height: auto; 
+}
+
+@media only screen and (max-width: 768px) {
+  .hobbies-container {
+    padding: 0 15px;
+    flex-direction: column;
+  }
+
+  .image-container {
+    margin-right: 0; 
+  }
+
+  img {
+    max-width: 200px;
+  }
 }
 
 /* Projects Section */
