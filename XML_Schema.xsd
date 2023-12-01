@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Define complex types for elements with child elements -->
+    <xs:element name="website">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="header"/>
+                <xs:element ref="navigation"/>
+                <xs:element ref="homeSection"/>
+                <xs:element ref="optionsSection"/>
+                <xs:element ref="tableSection"/>
+                <xs:element ref="hobbiesSection"/>
+                <xs:element ref="aboutSection"/>
+                <xs:element ref="contactSection"/>
+                <xs:element ref="surveySection"/>
+                <xs:element ref="footer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Header section -->
+    <xs:element name="header">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="darkModeSwitch"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Switching modes section -->
+    <xs:element name="darkModeSwitch">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="toggleText" type="xs:string"/>
+                <xs:element name="toggleIcon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Navigation section -->
+    <xs:element name="navigation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menuItems"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Menu items section -->
+    <xs:element name="menuItems">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="xs:string" minOccurs="5" maxOccurs="5"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Home section -->
+    <xs:element name="homeSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="titleGroup"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="titleGroup">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="h1" type="xs:string"/>
+                <xs:element name="h2" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Options section -->
+    <xs:element name="optionsSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="topicsTitle"/>
+                <xs:element ref="optionsMenu"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="topicsTitle" type="xs:string"/>
+
+    <xs:element name="optionsMenu">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="menuItem" type="menuItemWithSubmenuType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="menuItemWithSubmenuType">
+        <xs:sequence>
+            <xs:element name="subMenu" type="subMenuType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="subMenuType">
+        <xs:sequence>
+            <xs:element name="subItem" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- End of optuions section -->
+
+    <!-- Table section -->
+    <xs:element name="tableSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tableData"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="tableData">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="programming" type="programmingType" minOccurs="2" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="programmingType">
+        <xs:sequence>
+            <xs:element name="language" type="xs:string"/>
+            <xs:element name="activity" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Hobbies section -->
+    <xs:element name="hobbiesSection">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="hobbiesTitle"/>
+            <xs:element ref="hobbiesContainer"/>
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+    <xs:element name="hobbiesTitle" type="xs:string"/>
+
+    <xs:element name="hobbiesContainer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hobby" type="hobbyType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="hobbyType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="imageSource" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- About section -->
+    <xs:element name="aboutSection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="aboutTitle"/>
+                <xs:element ref="textBox"/>
+                <xs:element ref="aboutText"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="aboutTitle" type="xs:string"/>
+
+    <xs:element name="textBox">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="paragraph" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="aboutText">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="paragraph" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Contact section -->
+    <xs:element name="contactSection">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="contactTitle"/>
+            <xs:element ref="socialIcons"/>
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+    <xs:element name="contactTitle" type="xs:string"/>
+
+    <xs:element name="socialIcons">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="iconLink" type="iconLinkType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="links" type="linksType" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="iconLinkType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="href" type="xs:anyURI" use="required"/>
+                <xs:attribute name="target" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="linksType">
+        <xs:sequence>
+            <xs:element name="link" type="linkType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="linkType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="href" type="xs:anyURI" use="required"/>
+                <xs:attribute name="target" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Survey section -->
+    <xs:element name="surveySection">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="surveyTitle"/>
+                <xs:element ref="surveyForm"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="surveyTitle" type="xs:string"/>
+
+    <xs:element name="surveyForm">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="inputField" type="inputFieldType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="selectField" type="selectFieldType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="textareaField" type="textareaFieldType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="checkboxField" type="checkboxFieldType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="radioField" type="radioFieldType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="submitButton" type="submitButtonType"/>
+                <xs:element name="clearButton" type="clearButtonType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="inputFieldType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="label" type="xs:string" use="required"/>
+                <xs:attribute name="type" type="xs:string" use="required"/>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+                <xs:attribute name="required" type="xs:boolean" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="selectFieldType">
+        <xs:sequence>
+            <xs:element name="option" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="label" type="xs:string" use="required"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="textareaFieldType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="label" type="xs:string" use="required"/>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+                <xs:attribute name="rows" type="xs:integer" use="required"/>
+                <xs:attribute name="required" type="xs:boolean" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="checkboxFieldType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="label" type="xs:string" use="required"/>
+                <xs:attribute name="id" type="xs:string" use="required"/>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+                <xs:attribute name="value" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="radioFieldType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="label" type="xs:string" use="required"/>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+                <xs:attribute name="value" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="buttonType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string"/>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="submitButtonType">
+        <xs:complexContent>
+            <xs:extension base="buttonType">
+                <xs:attribute name="type" type="xs:string" use="required" default="submit"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="clearButtonType">
+        <xs:complexContent>
+            <xs:extension base="buttonType">
+                <xs:attribute name="type" type="xs:string" use="required" default="reset"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- End of survey section -->
+
+    <!-- Footer -->
+    <xs:element name="footer" type="footerType"/>
+
+    <xs:complexType name="footerType">
+        <xs:sequence>
+            <xs:element name="stickyFooter" type="stickyFooterType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="stickyFooterType">
+        <xs:sequence>
+            <xs:element name="footerContent" type="footerContentType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="footerContentType">
+        <xs:sequence>
+            <xs:element name="footerText" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- End of footer section -->
+
+    <!-- Define simple types for attributes -->
+    <xs:simpleType name="endLinksType">
+        <xs:restriction base="xs:anyURI"/>
+    </xs:simpleType>
+
+    <!-- Define the structure for the links element -->
+    <xs:element name="links">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="link" type="endLinksType" minOccurs="3" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

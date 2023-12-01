@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<website>
+    <header>
+        <darkModeSwitch>
+            <toggleText>Light Mode</toggleText>
+            <toggleIcon>Sun</toggleIcon>
+        </darkModeSwitch>
+    </header>
+
+    <navigation>
+        <menuItems>
+            <item id="home">HOME</item>
+            <item id="hobbies">HOBBIES</item>
+            <item id="about">ABOUT</item>
+            <item id="contact">CONTACT</item>
+            <item id="survey">SURVEY</item>
+        </menuItems>
+    </navigation>
+
+    <homeSection>
+        <titleGroup>
+            <h1>Hello I'm Mateusz</h1>
+            <h2>Welcome to the website about my hobbies!</h2>
+        </titleGroup>
+    </homeSection>
+
+    <optionsSection>
+        <topicsTitle>Topics related to that website</topicsTitle>
+        <optionsMenu>
+            <menuItem id="home">Who am I</menuItem>
+            <menuItem id="contact">Contact</menuItem>
+            <menuItem id="hobbies">
+                My hobbies
+                <subMenu>
+                    <subItem id="running">Running</subItem>
+                    <subItem id="coding">Coding</subItem>
+                    <subItem id="gym">Gym</subItem>
+                </subMenu>
+            </menuItem>
+        </optionsMenu>
+    </optionsSection>
+
+    <tableSection>
+        <tableData>
+            <programming>
+                <language>C++</language>
+                <activity>Running</activity>
+            </programming>
+            <programming>
+                <language>Python</language>
+                <activity>Gym</activity>
+            </programming>
+        </tableData>
+    </tableSection>
+
+    <hobbiesSection>
+        <hobbiesTitle>My hobbies</hobbiesTitle>
+        <hobbiesContainer>
+            <hobby>
+                <name>Coding</name>
+                <imageSource>img/undraw_proud_coder_light.svg</imageSource>
+            </hobby>
+            <hobby>
+                <name>Gym</name>
+                <imageSource>img/undraw_healthy_habit_light.svg</imageSource>
+            </hobby>
+            <hobby>
+                <name>Running</name>
+                <imageSource>img/undraw_fitness_stats_light.svg</imageSource>
+            </hobby>
+        </hobbiesContainer>
+    </hobbiesSection>
+
+    <aboutSection>
+        <aboutTitle>About me</aboutTitle>
+        <textBox>
+            <paragraph>Hello, my name is Mateusz, I like coding and I love working out!</paragraph>
+        </textBox>
+        <aboutText>
+            <paragraph>
+                Here will be my description.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga error harum quaerat rerum,
+                cum animi similique ab aliquid libero alias pariatur deleniti temporibus facere exercitationem
+                itaque dolor voluptate! Accusamus, deserunt! Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Voluptatum cupiditate ab perferendis, veniam error laboriosam praesentium
+                ratione. Harum rem saepe, porro at sapiente suscipit dicta. Quod blanditiis quidem reiciendis omnis?
+            </paragraph>
+        </aboutText>
+    </aboutSection>
+
+    <contactSection>
+        <contactTitle>Contact</contactTitle>
+        <socialIcons>
+            <iconLink href="https://github.com/Mateusz-best-creator" target="_blank">GitHub</iconLink>
+            <iconLink href="https://www.linkedin.com/in/mateusz-wieczorek-b9b21925a/" target="_blank">LinkedIn</iconLink>
+            <!-- Add more social icons as needed -->
+            <links>
+                <link href="https://example.com" target="_blank">Example Link</link>
+                <link href="https://example1.com" target="_blank">Example Link 1</link>
+                <link href="https://example2.com" target="_blank">Example Link 2</link>
+            </links>
+        </socialIcons>
+    </contactSection>
+
+    <surveySection>
+        <surveyTitle>Survey</surveyTitle>
+        <surveyForm>
+            <inputField label="Name" type="text" id="name" name="name" required="true"/>
+            <inputField label="Email" type="email" id="email" name="email" required="true"/>
+            <inputField label="Age" type="number" id="age" name="age" required="true"/>
+            <selectField label="Gender" id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </selectField>
+            <textareaField label="Feedback" id="feedback" name="feedback" rows="4" required="true"/>
+            <checkboxField label="Subscribe to newsletter" id="subscribe" name="subscribe" value="yes"/>
+            <radioField label="Did you enjoy this website?" name="enjoy" value="yes">YES</radioField>
+            <radioField name="enjoy" value="no">NO</radioField>
+            <submitButton>Submit</submitButton>
+            <clearButton>Clear Form</clearButton>
+        </surveyForm>
+    </surveySection>
+
+    <footer>
+        <stickyFooter>
+            <footerContent>
+                <footerText>Mateusz Wieczorek, ID: 197743</footerText>
+            </footerContent>
+        </stickyFooter>
+    </footer>
+
+</website>
