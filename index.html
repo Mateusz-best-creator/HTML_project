@@ -12,22 +12,26 @@
 </head>
 <body>
     <!-- Dark Mode Switch -->
-    <div class="theme-switch-wrapper">
-        <span id="toggle-icon">
-            <span class="toggle-text">Light Mode</span>
-            <i class="fas fa-sun"></i>
-        </span>
-        <label class="theme-switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-   </div>
+    <header>
+        <div class="theme-switch-wrapper">
+            <span id="toggle-icon">
+                <span class="toggle-text">Light Mode</span>
+                <i class="fas fa-sun"></i>
+            </span>
+            <label class="theme-switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+       </div>
+    </header>
+    
     <!-- Navigation -->
     <nav id="nav">
         <a href="#home">HOME</a>
         <a href="#hobbies">HOBBIES</a>
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTACT</a>
+        <a href="#survey">SURVEY</a>
     </nav>
     <!-- Home Section -->
     <section id="home">
@@ -36,6 +40,46 @@
             <h2>Welcome to the website about my hobbies!</h2>
         </div>
     </section>
+
+    <!-- Options -->
+    <section>
+        <h1>Topics related to that website</h1>
+        <div class="options-menu">
+            <ul>
+                <li><a href="#home">Who am I</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="sub-menu">
+                    <a href="#hobbies">My hobbies</a>
+                    <ul>
+                        <li><a href="#hobbies">Running</a></li>
+                        <li><a href="#hobbies">Coding</a></li>
+                        <li><a href="#hobbies">Gym</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="animated-box"></div>
+        <!-- Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Programming</th>
+                    <th>Activities</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>C++</td>
+                    <td>Running</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>Gym</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
     <!-- Hobbies Section -->
     <section id="hobbies">
         <h1>My hobbies</h1>
@@ -84,6 +128,47 @@
             </div>
         </div>
     </section>
+    <!-- Simple survey -->
+    <section id="survey">
+        <h1>Survey</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+    
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+    
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+    
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+    
+            <label>Did you enjoy this website?</label>
+            <label >YES</label>
+            <input type="radio" name="enjoy" value="yes">
+            <label >NO</label>
+            <input type="radio" name="enjoy" value="no">
+    
+            <button type="submit">Submit</button>
+            <button type="reset">Clear Form</button>
+        </form>
+    </section>
+    <footer class="sticky-footer">
+        <div class="footer-content">
+            <p>Mateusz Wieczorek, ID: 197743</p>
+        </div>
+    </footer>
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>

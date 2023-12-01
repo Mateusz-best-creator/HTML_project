@@ -75,6 +75,9 @@ a {
   font-weight: bold;
 }
 
+/* 
+    PSEUDO CLASS
+*/
 nav a:hover,
 a:focus {
   color: var(--on-background);
@@ -180,7 +183,9 @@ p {
   cursor: pointer;
   color: var(--primary-color);
 }
-
+/* 
+  PSEUDO CLASS
+*/
 .fab:hover {
   color: var(--on-background);
 }
@@ -251,7 +256,9 @@ p {
   transition: 0.4s;
   width: 60px;
 }
-
+/* 
+  PSEUDO ELEMENT
+*/
 .slider::before {
   background: #fff;
   bottom: 4px;
@@ -266,7 +273,9 @@ p {
 input:checked + .slider {
   background: var(--primary-color);
 }
-
+/* 
+    PSEUDO ELEMENT
+*/
 input:checked + .slider::before {
   transform: translateX(26px);
 }
@@ -274,7 +283,9 @@ input:checked + .slider::before {
 .slider.round {
   border-radius: 34px;
 }
-
+/* 
+  PSEUDO ELEMENT
+*/
 .slider.round::before {
   border-radius: 50%;
 }
@@ -282,4 +293,143 @@ input:checked + .slider::before {
 .fas {
   font-size: 30px;
   margin-right: 5px;
+}
+
+/* Footer */
+.sticky-footer {
+  background-color: #333;
+  color: #fff; 
+  padding: 10px;
+  margin-top: auto; 
+}
+
+.footer-content {
+  text-align: center;
+}
+
+/* Options menu */
+.options-menu {
+  background-color: #333;
+}
+
+.options-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.options-menu li {
+  margin-right: 20px;
+}
+
+.options-menu a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+}
+
+.sub-menu ul {
+  display: none;
+  position: absolute;
+  background-color: #555;
+  border-radius: 0 0 5px 5px;
+}
+
+.sub-menu:hover ul {
+  display: block;
+}
+
+.sub-menu li {
+  margin: 0;
+}
+
+.sub-menu a {
+  padding: 8px;
+  margin: 0;
+}
+
+.sub-menu ul li {
+  border-top: 1px solid #777;
+}
+
+.sub-menu ul li:first-child {
+  border-top: none;
+}
+
+/* Animation */
+
+.animated-box {
+  margin-top: 70px;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(80, 80, 201);
+  transition: background-color 0.3s ease, transform 0.5s ease;
+}
+
+.animated-box:hover {
+  background-color: rgb(15, 204, 218);
+  animation: moveAndRotate 1s ease-in-out forwards;
+}
+
+@keyframes moveAndRotate {
+  0% {
+      transform: translateY(0) rotate(0deg);
+  }
+  50% {
+      transform: translateY(-50px) rotate(180deg);
+  }
+  100% {
+      transform: translateY(0) rotate(360deg);
+  }
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Form styling */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="reset"] {
+  background-color: #ccc;
+  margin-right: 10px;
 }
