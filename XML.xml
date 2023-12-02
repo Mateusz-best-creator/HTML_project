@@ -24,7 +24,7 @@
         </titleGroup>
     </homeSection>
 
-    <optionsSection>
+    <!-- <optionsSection>
         <topicsTitle>Topics related to that website</topicsTitle>
         <optionsMenu>
             <menuItem id="home">Who am I</menuItem>
@@ -38,7 +38,7 @@
                 </subMenu>
             </menuItem>
         </optionsMenu>
-    </optionsSection>
+    </optionsSection> -->
 
     <tableSection>
         <tableData>

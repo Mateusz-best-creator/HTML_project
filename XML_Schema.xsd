@@ -7,7 +7,7 @@
                 <xs:element ref="header"/>
                 <xs:element ref="navigation"/>
                 <xs:element ref="homeSection"/>
-                <xs:element ref="optionsSection"/>
+                <!-- <xs:element ref="optionsSection"/> -->
                 <xs:element ref="tableSection"/>
                 <xs:element ref="hobbiesSection"/>
                 <xs:element ref="aboutSection"/>
@@ -82,7 +82,7 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Options Section -->
+    <!-- Options Section
     <xs:element name="optionsSection">
         <xs:complexType>
             <xs:sequence>
@@ -90,26 +90,8 @@
                 <xs:element ref="optionsMenu"/>
             </xs:sequence>
         </xs:complexType>
-    </xs:element>
-
-    <!-- Options Menu -->
-    <xs:element name="optionsMenu">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="menuItem" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="xs:string">
-                                <xs:attribute name="id" type="xs:string" use="required"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                        <xs:element ref="subMenu" minOccurs="0"/>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
+    </xs:element> -->
+    
     <!-- Sub Menu -->
     <xs:element name="subMenu">
         <xs:complexType>
