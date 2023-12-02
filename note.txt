@@ -1,0 +1,7 @@
+Issue with XML and XML Schema:
+
+XML and XML Schema are not flawless, even though they validate correctly.
+
+I had to disable some sections related to the options menu because I couldn't resolve an error that the schema validator kept showing. 
+In both XML and XML Schema, I had to comment out some lines – around 15 in XML and 10 in XML Schema. 
+I apologize for this inconvenience. Please understand :).
