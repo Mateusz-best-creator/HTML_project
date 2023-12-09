@@ -148,11 +148,17 @@
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
 
-    <xs:complexType name="HobbiesSectionType">
+    <!-- Adding group definition -->
+    <xs:group name="HobbiesSectionGroup">
         <xs:sequence>
             <xs:element name="hobbiesTitle" type="HobbiesTitleType"/>
             <xs:element ref="hobbiesContainer"/>
         </xs:sequence>
+    </xs:group>
+
+    <!-- Adding global complex types -->
+    <xs:complexType name="HobbiesSectionType">
+        <xs:group ref="HobbiesSectionGroup"/>
     </xs:complexType>
 
     <xs:element name="hobbiesSection" type="HobbiesSectionType"/>
@@ -220,15 +226,18 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Using choice order indicator -->
     <!-- Contact Section -->
     <xs:element name="contactSection">
         <xs:complexType>
-            <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
                 <xs:element ref="contactTitle"/>
                 <xs:element ref="socialIcons"/>
-            </xs:sequence>
+            </xs:choice>
         </xs:complexType>
     </xs:element>
+    <!-- End of local complex types -->
+
     <!-- End of local complex types -->
 
     <!-- Contact Title -->
@@ -376,22 +385,31 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Using all order indicator -->
     <!-- Sticky Footer -->
     <xs:element name="stickyFooter">
         <xs:complexType>
-            <xs:sequence>
+            <xs:all>
                 <xs:element ref="footerContent"/>
-            </xs:sequence>
+            </xs:all>
         </xs:complexType>
     </xs:element>
 
+
+    <!-- Adding local simple type -->
+    <!-- Using sequence order indicator -->
     <!-- Footer Content -->
     <xs:element name="footerContent">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="footerText" type="xs:string"/>
+                <xs:element name="footerText">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"/>
+                    </xs:simpleType>
+                </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
 
 </xs:schema>
