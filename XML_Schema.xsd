@@ -18,69 +18,67 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- Header section -->
-    <xs:element name="header">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="darkModeSwitch"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <!-- Adding global complex types -->
+    <xs:complexType name="DarkModeSwitchType">
+        <xs:sequence>
+            <xs:element name="toggleText" type="xs:string"/>
+            <xs:element name="toggleIcon" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 
-    <!-- Switching modes section -->
-    <xs:element name="darkModeSwitch">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="toggleText" type="xs:string"/>
-                <xs:element name="toggleIcon" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:complexType name="HeaderType">
+        <xs:sequence>
+            <xs:element ref="darkModeSwitch"/>
+        </xs:sequence>
+    </xs:complexType>
 
-    <!-- Navigation section -->
-    <xs:element name="navigation">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="menuItems"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:element name="header" type="HeaderType"/>
 
-    <!-- Menu Items section -->
-    <xs:element name="menuItems">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="item" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="xs:string">
-                                <xs:attribute name="id" type="xs:string" use="required"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:element name="darkModeSwitch" type="DarkModeSwitchType"/>
 
-    <!-- Home Section -->
-    <xs:element name="homeSection">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="titleGroup"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
 
-    <!-- Title Group -->
-    <xs:element name="titleGroup">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="h1" type="xs:string"/>
-                <xs:element name="h2" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <!-- Adding global complex types -->
+    <xs:complexType name="MenuItemType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="MenuItemsType">
+        <xs:sequence>
+            <xs:element name="item" maxOccurs="unbounded" type="MenuItemType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NavigationType">
+        <xs:sequence>
+            <xs:element ref="menuItems"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="menuItems" type="MenuItemsType"/>
+
+    <xs:element name="navigation" type="NavigationType"/>
+
+    <!-- Adding global complex types -->
+    <xs:complexType name="TitleGroupType">
+        <xs:sequence>
+            <xs:element name="h1" type="xs:string"/>
+            <xs:element name="h2" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="HomeSectionType">
+        <xs:sequence>
+            <xs:element ref="titleGroup"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="titleGroup" type="TitleGroupType"/>
+
+    <xs:element name="homeSection" type="HomeSectionType"/>
 
     <!-- Options Section
     <xs:element name="optionsSection">
@@ -92,57 +90,72 @@
         </xs:complexType>
     </xs:element> -->
     
-    <!-- Sub Menu -->
-    <xs:element name="subMenu">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="subItem" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:simpleContent>
-                            <xs:extension base="xs:string">
-                                <xs:attribute name="id" type="xs:string" use="required"/>
-                            </xs:extension>
-                        </xs:simpleContent>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <!-- Adding global simple types -->
+    <xs:simpleType name="IdType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
 
-    <!-- Table Section -->
-    <xs:element name="tableSection">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="tableData"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:complexType name="SubItemType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="id" type="IdType" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
 
-    <!-- Table Data -->
-    <xs:element name="tableData">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="programming" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="language" type="xs:string"/>
-                            <xs:element name="activity" type="xs:string"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:complexType name="SubMenuType">
+        <xs:sequence>
+            <xs:element name="subItem" maxOccurs="unbounded" type="SubItemType"/>
+        </xs:sequence>
+    </xs:complexType>
 
-    <!-- Hobbies Section -->
-    <xs:element name="hobbiesSection">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="hobbiesTitle"/>
-                <xs:element ref="hobbiesContainer"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xs:complexType name="TableSectionType">
+        <xs:sequence>
+            <xs:element ref="tableData"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="subMenu" type="SubMenuType"/>
+
+    <xs:element name="tableSection" type="TableSectionType"/>
+
+    <!-- Adding global simple type -->
+    <xs:simpleType name="LanguageType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="ActivityType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="ProgrammingType">
+        <xs:sequence>
+            <xs:element name="language" type="LanguageType"/>
+            <xs:element name="activity" type="ActivityType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TableDataType">
+        <xs:sequence>
+            <xs:element name="programming" maxOccurs="unbounded" type="ProgrammingType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="tableData" type="TableDataType"/>
+
+    <!-- Adding global simple type -->
+    <xs:simpleType name="HobbiesTitleType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="HobbiesSectionType">
+        <xs:sequence>
+            <xs:element name="hobbiesTitle" type="HobbiesTitleType"/>
+            <xs:element ref="hobbiesContainer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="hobbiesSection" type="HobbiesSectionType"/>
 
     <!-- Hobbies Title -->
     <xs:element name="hobbiesTitle" type="xs:string"/>
@@ -163,16 +176,27 @@
         </xs:complexType>
     </xs:element>
 
-    <!-- About Section -->
-    <xs:element name="aboutSection">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="aboutTitle"/>
-                <xs:element ref="textBox"/>
-                <xs:element ref="aboutText"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <!-- Adding global simple type -->
+   <xs:simpleType name="AboutTitleType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="TextBoxType">
+        <xs:sequence>
+            <xs:element name="paragraph" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AboutSectionType">
+        <xs:sequence>
+            <xs:element name="aboutTitle" type="AboutTitleType"/>
+            <xs:element name="textBox" type="TextBoxType"/>
+            <xs:element name="aboutText" type="TextBoxType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="aboutSection" type="AboutSectionType"/>
 
     <!-- About Title -->
     <xs:element name="aboutTitle" type="xs:string"/>
@@ -186,6 +210,7 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Local complex types -->
     <!-- About Text -->
     <xs:element name="aboutText">
         <xs:complexType>
@@ -204,6 +229,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <!-- End of local complex types -->
 
     <!-- Contact Title -->
     <xs:element name="contactTitle" type="xs:string"/>
@@ -242,15 +268,22 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Adding local simple types -->
     <!-- Survey Section -->
     <xs:element name="surveySection">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="surveyTitle"/>
+                <!-- Use local simple type for surveyTitle -->
+                <xs:element name="surveyTitle">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"/>
+                    </xs:simpleType>
+                </xs:element>
                 <xs:element ref="surveyForm"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
 
     <!-- Survey Title -->
     <xs:element name="surveyTitle" type="xs:string"/>
@@ -333,6 +366,7 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- Adding local simple types -->
     <!-- Footer Section -->
     <xs:element name="footer">
         <xs:complexType>
