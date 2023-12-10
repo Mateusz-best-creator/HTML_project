@@ -297,6 +297,9 @@
     <!-- Survey Title -->
     <xs:element name="surveyTitle" type="xs:string"/>
 
+    <!-- Global attribute declaration -->
+    <xs:attribute name="label" type="xs:string"/>
+
     <!-- Survey Form -->
     <xs:element name="surveyForm">
         <xs:complexType>
@@ -305,7 +308,8 @@
                     <xs:complexType>
                         <xs:simpleContent>
                             <xs:extension base="xs:string">
-                                <xs:attribute name="label" type="xs:string"/>
+                                <!-- Global attribute used -->
+                                <xs:attribute ref="label"/>
                                 <xs:attribute name="type" type="xs:string"/>
                                 <xs:attribute name="id" type="xs:string"/>
                                 <xs:attribute name="name" type="xs:string"/>
@@ -328,7 +332,8 @@
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
-                        <xs:attribute name="label" type="xs:string"/>
+                        <!-- Global attribute used -->
+                        <xs:attribute ref="label"/>
                         <xs:attribute name="id" type="xs:string"/>
                         <xs:attribute name="name" type="xs:string"/>
                     </xs:complexType>
