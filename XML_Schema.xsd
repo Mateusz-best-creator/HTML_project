@@ -19,9 +19,16 @@
     </xs:element>
 
     <!-- Adding global complex types -->
+    <!-- Adding union type definition -->
+    <xs:simpleType name="ToggleTextType">
+        <xs:union memberTypes="xs:string xs:integer"/>
+    </xs:simpleType>
+
+    <!-- Adding global complex types -->
     <xs:complexType name="DarkModeSwitchType">
         <xs:sequence>
-            <xs:element name="toggleText" type="xs:string"/>
+            <!-- Using the union type for toggleText -->
+            <xs:element name="toggleText" type="ToggleTextType"/>
             <xs:element name="toggleIcon" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
