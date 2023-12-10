@@ -21,7 +21,7 @@
     <!-- Adding global complex types -->
     <!-- Adding union type definition -->
     <xs:simpleType name="ToggleTextType">
-        <xs:union memberTypes="xs:string xs:integer"/>
+        <xs:union memberTypes="xs:string xs:float"/>
     </xs:simpleType>
 
     <!-- Adding global complex types -->
